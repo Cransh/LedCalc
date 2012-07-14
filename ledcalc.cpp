@@ -195,7 +195,10 @@ void ledcalc::on_btn_invert_clicked()
 }
 void ledcalc::on_btn_save_clicked()
 {
+
     QString filename=QFileDialog::getSaveFileName(this,"save file","");
+    if(filename=="")
+        filename="out.txt";
     QFile file(filename);
     file.open(QIODevice::WriteOnly);
     QTextStream out_d(&file);
